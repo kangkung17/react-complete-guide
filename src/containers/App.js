@@ -163,20 +163,3 @@ class App extends Component {
 }
 
 export default App;
-
-//EXAMPLE FOR MANIPULATING STATE WITH useState property
-// import React, { useState } from 'react';
-// import Person from './Person/Person.js';
-// import './App.css';
-
-// const app = props => {
-//     const [ personsState, setPersonsState ] = useState({
-//       persons: [
-//         { name: 'Max', age: 25 },
-//         { name: 'Manu', age: 24 },
-//         { name: 'Stephanie', age: 19 }
-//       ],
-//       otheState: 'some other value'
-//     });
-
-//     const [ otherState, setOtherState ] = useState('some other value');
