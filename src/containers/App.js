@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-import WithClass from '../ hoc/WithClass';
+
 import Cockpit from '../components/Cockpit/Cockpit';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
+import withClass from '../ hoc/withClass';
+import Aux from '../ hoc/Aux';
 
 
 //Example for class-based component state manipulating
@@ -115,7 +117,7 @@ class App extends Component {
     
 
     return (
-        <WithClass classes={classes.App}>
+        <Aux>
         <button 
         onClick={ () => {
           this.setState({ showCockpit: false});
@@ -131,7 +133,7 @@ class App extends Component {
             clicked={this.togglePersonHandler}
           /> : null}
           {persons}
-      </WithClass>
+      </Aux>
 
         //   //INSOURCING METHOD
         //      //its usual if expression is not work for jsx, so use this, it similar with if
@@ -163,4 +165,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withClass(App, classes.App);
