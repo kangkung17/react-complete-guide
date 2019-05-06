@@ -1,1 +1,3 @@
-console.log("test");
+const aux = props => props.children;
+
+export default aux;
