@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Aux from '../../../ hoc/Aux';
 import classes from './Person.css';
+import withClass from '../../../ hoc/withClass';
 
 
 
@@ -10,7 +11,6 @@ class Person extends Component {
         console.log('[Person.js] rendering...');
         return (
             <Aux>
-                <div className={classes.Person} >
                 <p onClick={this.props.click}>my name is {this.props.name} and i am {this.props.age} years old</p>
                 <p>{this.props.children}</p>
                 <input 
@@ -24,14 +24,13 @@ class Person extends Component {
                 onChange={this.props.changeAge} 
                 value={this.props.age} 
                 />
-                </div>
             </Aux>
         );
     }
     
 };
 
-export default Person;
+export default withClass(Person, classes.Person);
 
 // using this cuz, this is based class component
 // there is 2 ways to manipulate css pseudo and media query:
