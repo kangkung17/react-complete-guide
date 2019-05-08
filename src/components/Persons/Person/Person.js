@@ -8,6 +8,17 @@ import withClass from '../../../ hoc/withClass';
 
 
 class Person extends Component {
+
+    constructor(props) {
+        super(props);
+        this.inputElementRef = React.createRef();
+    }
+
+    componentDidMount(){
+        // this.inputElement.focus();
+        this.inputElementRef.current.focus();
+    }
+
     render () {
         console.log('[Person.js] rendering...');
         return (
@@ -16,17 +27,20 @@ class Person extends Component {
                 <p key="i2">{this.props.children}</p>
                 <input 
                     key="i3"
+                    // ref={(inputEl) => {this.inputElement = inputEl}}
+                    ref={this.inputElementRef}
                     type="text" 
                     onChange={this.props.changeName} 
                     value={this.props.name} 
                 />
-                <br></br>
+                {/* <br></br>
                 <input 
                 key="i4"
+                ref={(inputEl) => {this.inputElement = inputEl}}
                 type="number"
                 onChange={this.props.changeAge} 
                 value={this.props.age} 
-                />
+                /> */}
             </Aux>
         );
     }  
