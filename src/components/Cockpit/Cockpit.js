@@ -42,6 +42,7 @@ const cockpit = ( props ) => {
       assignedClasses.push( classes.bold ); //add classes = ['red','bold']
     }
 
+
     return(
         
     <div className={classes.Cockpit}>
