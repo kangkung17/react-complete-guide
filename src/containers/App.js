@@ -25,7 +25,8 @@ class App extends Component {
     otherState: 'some other value',
     showPerson : false,
     showCockpit: true,
-    changeCounter: 0
+    changeCounter: 0,
+    authenticated: false
   }
 
   static getDerivedStateFromProps (props, state) {
@@ -105,7 +106,12 @@ class App extends Component {
     this.setState({
       showPerson: !doesShow
     });
+  };
+
+  loginHandler = () => {
+    this.setState({ authenticated: true});
   }
+
   render() {
     console.log('[App.js] render');
     
@@ -118,7 +124,8 @@ class App extends Component {
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
             changedName={this.changeNameHandler}
-            changedAge={this.changeAgeHandler} />;
+            changedAge={this.changeAgeHandler}
+            isAuthenticated={this.state.authenticated} />;
 
       //this is for dynamic color for button when click
       //agar warna background-color pada button tdk saling menimpa
@@ -142,6 +149,7 @@ class App extends Component {
             showPerson={this.state.showPerson}
             personsLength={this.state.persons.length}
             clicked={this.togglePersonHandler}
+            login={this.loginHandler}
           /> : null}
           {persons}
       </Aux>
