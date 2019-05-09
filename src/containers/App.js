@@ -6,6 +6,7 @@ import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import withClass from '../ hoc/withClass';
 import Aux from '../ hoc/Aux';
+import AuthContext from '../context/auth-context';
 
 
 //Example for class-based component state manipulating
@@ -143,15 +144,21 @@ class App extends Component {
         >
         Remove Cockpit
         </button>
+        <AuthContext.Provider 
+        value={{
+          authenticated: this.state.authenticated,
+          login:this.loginHandler
+          }}
+        >
           {this.state.showCockpit ? 
           <Cockpit 
             title={this.props.appTitle}
             showPerson={this.state.showPerson}
             personsLength={this.state.persons.length}
             clicked={this.togglePersonHandler}
-            login={this.loginHandler}
           /> : null}
           {persons}
+        </AuthContext.Provider>
       </Aux>
 
         //   //INSOURCING METHOD

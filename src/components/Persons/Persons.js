@@ -45,19 +45,19 @@ class Persons extends PureComponent {
   render() {
     console.log('[Persons.js] rendering...');
    
-  return this.props.persons.map( ( person, index ) => {
-    return (
-      <Person
-        click={() => this.props.clicked( index )}
-        name={person.name}
-        age={person.age}
-        key={person.id}  
-        changeName={( event ) => this.props.changedName( event, person.id )}
-        // changeAge={( event ) => this.props.changedAge( event, person.id )}
-        isAuth={this.props.isAuthenticated}
-      />
-    );
-  });
+    return (this.props.persons.map( ( person, index ) => {
+        return (
+          <Person
+            click={() => this.props.clicked( index )}
+            name={person.name}
+            age={person.age}
+            key={person.id}  
+            changeName={( event ) => this.props.changedName( event, person.id )}
+            // changeAge={( event ) => this.props.changedAge( event, person.id )}
+          />
+        );
+      })
+    )
   }
   
 }
